@@ -1,5 +1,5 @@
 # RepoTemplates
 
-Please add your name: "edit name" (and pronounciation)
+Please add your name: "Yaqian Yang" (and pronounciation)
 
-Please add your Northeastern email address: "youremail@northeastern.edu"
+Please add your Northeastern email address: "yang.yaqi@northeastern.edu"
