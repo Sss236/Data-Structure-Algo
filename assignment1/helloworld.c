@@ -4,6 +4,6 @@
 // email: yang.yaqi@northeastern.edu
 
 int main() {
-  printf("Hello World.  This is Brent.\n");
+  printf("Hello World.  This is Yaqian.\n");
   return 0;
 }
