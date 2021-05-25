@@ -1,5 +1,5 @@
-// name: <your name here>
-// email: <your email here>
+// name: <your name here> Yaqian Yang
+// email: <your email here> yang.yaqi@northeastern.edu
 
 #include <stdio.h>   // stardard input/output library
 #include <stdbool.h> // standard boolean library: bool, true, false
@@ -10,18 +10,35 @@ bool isEmpty (int* s, int t) {
   // returns true if t = -1
 
   // INSERT YOUR CODE HERE
+   if (t == -1) {
+   return true;
+  } else {
+   return false;
+  }
 }
 
 bool isFull (int* s, int t) {
   // returns true if no more room in the stack
 
   // INSERT YOUR CODE HERE
+  if(t >= MAXSIZE -1) {
+    return true;
+  } else {
+    return false;
+  }
 }
 
 void push(int v, int* s, int* tp) {
   // put v onto the top of the stack s unless it is already full
 
   // INSERT YOUR CODE HERE
+  if (!isFull(s,*tp)){ 
+    (*tp)++;
+    s[*tp] = v;    
+  } else {
+    printf("*** attempt to push %d onto full stack ***\n",v);
+  }
+  return;
 }
 
 int pop (int* s, int* tp) {
@@ -29,6 +46,14 @@ int pop (int* s, int* tp) {
   // update s and *tp -- requires top to be passed by reference!
 
   // INSERT YOUR CODE HERE
+  int returnval = 0;
+  if (!isEmpty(s,*tp)) {
+    returnval = s[*tp];
+    (*tp)--;
+  } else {
+    printf("*** attempt to pop empty stack ***\n");
+  }
+  return returnval;
 }
 
 int main () {
