@@ -1,5 +1,5 @@
-// name: <your name here>
-// email: <your email here>
+// name: <your name here> Yaqian Yang
+// email: <your email here> yang.yaqi@northeastern.edu
 
 #include <stdio.h>
 #include <stdlib.h>
@@ -19,7 +19,7 @@ int main(){
   int i;             // loop variable
   int j;             // loop variable
   int smallest;      // current smallest element
-
+ 
   //seed random numbers
   srand((unsigned)time(NULL));
 
@@ -49,7 +49,19 @@ int main(){
   for (i=0; i<LIMIT; i++) {
 
     // INSERT YOUR CODE HERE
-    
+    int temp;
+    for (j = i+1; j < LIMIT; j++)
+    {
+      if (source[j]<source[smallest]){
+        smallest = j;
+      }
+    }
+    if (smallest != j)
+    {
+      temp = source[smallest];
+      source[smallest] = source[j];
+      source[j] = temp;
+    }
   }
   
   //print out sorted array in rows of 10
@@ -57,7 +69,12 @@ int main(){
   for (i=0; i < ((LIMIT/10)+1); i++) {
 
     // INSERT YOUR CODE HERE
-    
+    for (j=0; j<10; j++) {
+      if (i*10+j < LIMIT) {
+	printf("%.2d ",source[i*10+j]);
+      }
+    }
+    printf("\n");
   }
   printf("\n");
   
