@@ -50,6 +50,7 @@ int main(){
 
     // INSERT YOUR CODE HERE
     int temp;
+    smallest = i;
     for (j = i+1; j < LIMIT; j++)
     {
       if (source[j]<source[smallest]){
