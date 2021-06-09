@@ -57,12 +57,10 @@ int main(){
         smallest = j;
       }
     }
-    if (smallest != j)
-    {
       temp = source[smallest];
-      source[smallest] = source[j];
-      source[j] = temp;
-    }
+      source[smallest] = source[i];
+      source[i] = temp;
+    
   }
   
   //print out sorted array in rows of 10
