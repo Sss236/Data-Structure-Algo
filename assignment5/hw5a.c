@@ -37,7 +37,35 @@ void mergeIt(
   
 
   // ADD YOUR CODE HERE
-  
+  char temp[LIMIT];
+  int leftIdx = leftStart;
+  int rightIdx = rightStart;
+  int tempIdx = leftStart;
+  while(leftIdx <= leftStop && rightIdx <= rightStop){
+    if(data[leftIdx] <= data[rightIdx]){
+      temp[tempIdx] = data[leftIdx];
+      leftIdx++;
+      tempIdx++; 
+    } else {
+      temp[tempIdx] = data[rightIdx];
+      rightIdx++;
+      tempIdx++; 
+    }
+  }
+  while(leftIdx <= leftStop){
+    temp[tempIdx] = data[leftIdx];
+    tempIdx++;
+    leftIdx++;
+  }
+  while(rightIdx <= rightStop){
+    temp[tempIdx] = data[rightIdx];
+    tempIdx++;
+    rightIdx++;
+  }
+  for(int i = leftStart; i <= rightStop; i++){
+    data[i] = temp[i];
+  }
+
   return;
 }
 
