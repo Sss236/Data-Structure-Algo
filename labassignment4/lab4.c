@@ -5,13 +5,6 @@
 int a;
 int factorial;
 
-int main()
-{
-    scanf("%d", &a);
-    factorial = fact(a);
-    printf("%d",factorial);
-    return 0;
-}
 
 int fact(int n)
 {
@@ -22,3 +15,13 @@ int fact(int n)
     }
     
 }
+
+int main()
+{
+    scanf("%d", &a);
+    factorial = fact(a);
+    printf("%d",factorial);
+    return 0;
+}
+
+
