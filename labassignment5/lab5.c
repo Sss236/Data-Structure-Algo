@@ -1,5 +1,5 @@
-//enter your name here
-//enter your email here
+//enter your name here Yaqian Yang
+//enter your email here yang.yaqi@northeastern.edu
 
 #include<stdio.h>
 #include<stdlib.h>
@@ -97,40 +97,39 @@ avl_node* Insert(avl_node* root,int data)
 {
     
     //INSERT YOUR CODE HERE
-    
-    
-    
-    
-    
-    
-/*updating the height after insertion of the node*/
-    root->height = max(height(root->left),height(root->right))+1;
-    
-/*checking the balance factor to check the tree is balanced */
+    if (root == NULL)
+        return(NewNode(data));
+ 
+    if (data < root->data)
+        root->left  = Insert(root->left, data);
+    else if (data > root->data)
+        root->right = Insert(root->right, data);
+    else 
+        return root;
+ 
+    root->height = 1 + max(height(root->left),
+                           height(root->right));
+ 
     int balance = Balance(root);
-
-    // Left Left Case
-    if(balance > 1 && data < root->left->data)
+ 
+    if (balance > 1 && data < root->left->data)
         return RightRotate(root);
 
-    // Right Right Case
-    if(balance < -1 && data > root->right->data)
+    if (balance < -1 && data > root->right->data)
         return LeftRotate(root);
 
-    //Left Right Case
-    if(balance > 1 && data > root->left->data)
+    if (balance > 1 && data > root->left->data)
     {
-        root->left = LeftRotate(root->left);
+        root->left =  LeftRotate(root->left);
         return RightRotate(root);
     }
-
-    // Right Left Case
-    if(balance < -1 && data < root->right->data)
+ 
+    if (balance < -1 && data < root->right->data)
     {
         root->right = RightRotate(root->right);
         return LeftRotate(root);
     }
-
+ 
     return root;
 }
 
