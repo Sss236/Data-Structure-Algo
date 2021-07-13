@@ -19,15 +19,39 @@ typedef struct Graph
 /*A function to create a graph with an array of adjacency lists which is= numberof vertices*/
 
 
+Graph* createGraph(int num){
+    Graph* ans = malloc(sizeof(Graph));
+    ans->adjLists = malloc(sizeof(node*) * num);
+    ans->numberOfVertices = num;
+    return ans;
+}
 
-    
+node* createNode(char* name){
+    node* ans = malloc(sizeof(node));
+    strcpy(ans->name, name);
+    return ans;
+} 
 
 /*adds an edge to an undirected graph*/
 void addConnection(Graph* graph, char* person, char* friend)
 {
 
     //Insert your code here
-    
+    for(int i = 0; i < graph->numberOfVertices; i++){
+        if(graph->adjLists[i] == NULL){
+            graph->adjLists[i] = createNode(person);
+            graph->adjLists[i]->next = createNode(friend);
+            return;
+        }
+        if(strcmp(person,graph->adjLists[i]->name)==0){
+            node* cur = graph->adjLists[i]->next;
+            while(cur != NULL && cur->next != NULL){
+                cur = cur->next;
+            }
+            cur->next = createNode(friend);
+            return;
+        }
+    }
     
     
 }
