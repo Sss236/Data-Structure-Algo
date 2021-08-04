@@ -1,5 +1,5 @@
-/* Enter your name here *: Yaqian Yang
-/* Enter your email here*:  yang.yaqi@northeastern.edu
+/* Enter your name here: Yaqian Yang*/
+/* Enter your email here: yang.yaqi@northeastern.edu */
 
 #include<stdio.h>
 #define MAXN 50       /* largest number of books */
