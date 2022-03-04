@@ -274,19 +274,20 @@ void postorder (tnode_t* np) {
 
 void breadthFirst (tnode_t* root) {
   // INSERT YOUR CODE HERE
-  if(root == NULL)
-    return;
-  printf("%c ", root->data);
-  queue_t* queue = newQueue();
-  enqueue(queue, root->left);
-  enqueue(queue, root->right);
-  while(!isEmpty(queue)){
-    tnode_t* cur = dequeue(queue);
-    if(cur == NULL)
-      continue;
-    printf("%c ", cur->data);
-    enqueue(queue, cur->left);
-    enqueue(queue, cur->right);
+  temp = NULL;
+  Q = NULL;
+  if(root!=NULL){
+    enqueue(Q,root);
+    while(!isEmpty(Q)){
+      temp = dequeue(Q);
+      printf("%c",temp->data);
+      if(temp->left!=NULL){
+        enqueue(Q,temp->left);
+      }
+      if(temp->right!=NULL){
+        enqueue(Q,temp->right);
+      }
+    }
   }
   freeQueue(queue);
   return;
